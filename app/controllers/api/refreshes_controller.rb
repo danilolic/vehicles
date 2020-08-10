@@ -6,7 +6,7 @@ module Api
 
     def create
       session = JWTSessions::Session.new(payload: create_payload)
-      render json: session.refresh(found_token)
+      render json: session.refresh(found_token), status: :created
     end
 
     private
