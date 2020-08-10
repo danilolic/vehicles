@@ -6,5 +6,11 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email) }
     it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:role) }
+
+    it do
+      expect(subject).to define_enum_for(:role)
+        .with_values(%i[client admin])
+    end
   end
 end
