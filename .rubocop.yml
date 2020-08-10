@@ -1,0 +1,21 @@
+require: rubocop-rspec
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - "config/**/*.rb"
+    - "bin/*"
+    - "db/**/*.rb"
+    - "lib/**/*.rake"
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
