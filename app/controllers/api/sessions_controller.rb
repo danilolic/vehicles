@@ -6,7 +6,7 @@ module Api
       @user = User.find_by!(email: params[:email])
       if @user.authenticate(params[:password])
         @session = JWTSessions::Session.new(payload: create_payload(@user))
-        render json: @session.login
+        render json: @session.login, status: :created
       else
         render json: 'Invalid user', status: :unauthorized
       end
