@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
 
     it do
       expect(subject).to define_enum_for(:role)
-        .with_values(%i[client admin])
+        .with_values(%i[admin])
     end
   end
 end
