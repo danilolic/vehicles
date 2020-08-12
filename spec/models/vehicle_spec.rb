@@ -7,6 +7,7 @@ RSpec.describe Vehicle, type: :model do
 
   describe 'with relationships' do
     it { is_expected.to belong_to(:model) }
+    it { is_expected.to belong_to(:brand) }
   end
 
   describe 'with validations' do

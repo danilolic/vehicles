@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe '/vehicles', type: :request do
   let(:admin) { create(:user) }
-  let!(:vehicle) { create(:vehicle) }
+  let(:model) { create(:model) }
+  let!(:vehicle) { create(:vehicle, model: model, brand: model.brand) }
   let(:valid_headers) { { Authorization: access_token(admin) } }
-  let(:valid_attributes) { attributes_for(:vehicle) }
+  let(:valid_attributes) do
+    { value: 'R$ 6512459.14', year_model: 2016, fuel: 'Gasoline Hybrid', model_id: model.id, brand_id: model.brand.id }
+  end
   let(:invalid_attributes) { { value: '' } }
 
   describe 'GET /index' do
