@@ -4,7 +4,7 @@ module Api
   class ModelsController < ApplicationController
     before_action :authorize_access_request!, except: :index
     before_action :set_model, only: %i[show update destroy]
-    before_action :set_brand, only: :index
+    before_action :set_brand, only: %i[index create]
 
     # GET api/brands/:brand_id/models
     def index
@@ -20,7 +20,7 @@ module Api
 
     # POST api/brands/:brand_id/models
     def create
-      @model = Model.new(model_params)
+      @model = @brand.models.build(model_params)
 
       if @model.save
         render json: @model, status: :created
