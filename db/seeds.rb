@@ -8,6 +8,23 @@
 
 User.create(name: 'admin', email: 'admin@email.com', password: '123456')
 
-20.times do
+10.times do
   Brand.create(name: "#{Faker::Vehicle.make} - #{Faker::Vehicle.vin}")
+end
+
+10.times do
+  Model.create(name: Faker::Vehicle.model, brand: Brand.order('RANDOM()').first)
+end
+
+50.times do
+  model = Model.order('RANDOM()').first
+  brand = model.brand
+
+  Vehicle.create(
+    value: "R$ #{Faker::Commerce.price(range: 5_000..10_000_000.0, as_string: true)}",
+    year_model: Faker::Vehicle.year,
+    fuel: Faker::Vehicle.fuel_type,
+    model: model,
+    brand: brand
+  )
 end
