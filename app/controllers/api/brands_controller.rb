@@ -2,11 +2,12 @@
 
 module Api
   class BrandsController < ApplicationController
+    before_action :authorize_access_request!, except: :index
     before_action :set_brand, only: %i[show update destroy]
 
     # GET /brands
     def index
-      @brands = Brand.all
+      @brands = Brand.order(:name)
 
       render json: @brands
     end
@@ -21,7 +22,7 @@ module Api
       @brand = Brand.new(brand_params)
 
       if @brand.save
-        render json: @brand, status: :created, location: @brand
+        render json: @brand, status: :created
       else
         render json: @brand.errors, status: :unprocessable_entity
       end
