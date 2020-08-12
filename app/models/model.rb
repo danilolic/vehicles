@@ -5,4 +5,8 @@ class Model < ApplicationRecord
   belongs_to :brand
 
   validates :name, presence: true, uniqueness: true
+
+  def name_of_model
+    name
+  end
 end

@@ -6,6 +6,7 @@ class Vehicle < ApplicationRecord
   validates :year_model, presence: true
   validates :value, presence: true
 
-  delegate :name, to: :brand, prefix: true
+  # You can't delegate with #model_name because #model_name is a reserved method of rails
   delegate :name_of_model, to: :model
+  delegate :name, to: :brand, prefix: true
 end
