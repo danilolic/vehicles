@@ -6,6 +6,7 @@ RSpec.describe Model, type: :model do
   end
 
   describe 'with relationships' do
+    it { is_expected.to have_many(:vehicles) }
     it { is_expected.to belong_to(:brand) }
   end
 
