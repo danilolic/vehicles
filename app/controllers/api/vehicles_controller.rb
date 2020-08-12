@@ -54,7 +54,7 @@ module Api
 
     # Only allow a trusted parameter "white list" through.
     def vehicle_params
-      params.require(:vehicle).permit(:value, :model_id, :year_model, :fuel)
+      params.require(:vehicle).permit(:value, :model_id, :brand_id, :year_model, :fuel)
     end
   end
 end
