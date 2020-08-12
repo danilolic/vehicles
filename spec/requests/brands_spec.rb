@@ -62,9 +62,9 @@ RSpec.describe '/brands', type: :request do
   end
 
   describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) { attributes_for(:brand) }
+    let(:new_attributes) { attributes_for(:brand) }
 
+    context 'with valid parameters' do
       before { patch "/api/brands/#{brand.id}", headers: valid_headers, params: { brand: new_attributes } }
 
       it 'returns status code 200' do
@@ -85,8 +85,6 @@ RSpec.describe '/brands', type: :request do
     end
 
     context 'without login' do
-      let(:new_attributes) { attributes_for(:brand) }
-
       before { patch "/api/brands/#{brand.id}", params: { brand: new_attributes } }
 
       it 'returns status code 401' do
