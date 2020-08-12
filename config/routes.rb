@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resource :refresh, only: %i[create]
 
     resources :brands do
-      resources :models, shallow: true
+      resources :models, shallow: true do
+        resources :vehicles, shallow: true
+      end
     end
   end
 end
