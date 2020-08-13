@@ -4,6 +4,5 @@ FactoryBot.define do
     year_model { Faker::Vehicle.year }
     fuel { Faker::Vehicle.fuel_type }
     model
-    brand
   end
 end
