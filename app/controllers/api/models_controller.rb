@@ -8,7 +8,7 @@ module Api
 
     # GET api/brands/:brand_id/models
     def index
-      @models = @brand.models
+      @models = @brand.models.order(:name)
 
       render json: @models
     end
