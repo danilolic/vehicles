@@ -1,13 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Vehicle, type: :model do
-  before do
-    create(:vehicle)
-  end
+  subject { create(:vehicle) }
 
   describe 'with relationships' do
-    it { is_expected.to belong_to(:model) }
-    it { is_expected.to belong_to(:brand) }
+    it 'belongs_to brand' do
+      expect(subject.brand).to be_a(Brand)
+    end
+
+    it 'belongs_to model' do
+      expect(subject.model).to be_a(Model)
+    end
   end
 
   describe 'with validations' do
