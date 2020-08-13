@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class VehiclesController < ApplicationController
     before_action :authorize_access_request!, except: :index
