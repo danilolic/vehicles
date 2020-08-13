@@ -41,6 +41,7 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'database_cleaner'
   gem 'rubocop-rspec', require: false
+  gem 'simplecov', require: false
 end
 
 group :development do
