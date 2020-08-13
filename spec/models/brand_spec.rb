@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Brand, type: :model do
   describe 'with relationships' do
-    it { is_expected.to have_many(:models) }
+    it { is_expected.to have_many(:models).dependent(:destroy) }
   end
 
   describe 'with validations' do
