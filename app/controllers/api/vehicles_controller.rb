@@ -6,22 +6,18 @@ module Api
 
     # GET api/models/:model_id/vehicles
     def index
-      @vehicles = Vehicle.all
-
-      render json: @vehicles
+      @vehicles = @model.vehicles.order(:value)
     end
 
     # GET api/vehicles/1
-    def show
-      render json: @vehicle
-    end
+    def show; end
 
     # POST api/models/:model_id/vehicles
     def create
       @vehicle = @model.vehicles.build(vehicle_params)
 
       if @vehicle.save
-        render json: @vehicle, status: :created
+        render 'api/vehicles/show.json', status: :created
       else
         render json: @vehicle.errors, status: :unprocessable_entity
       end
@@ -30,7 +26,7 @@ module Api
     # PATCH/PUT api/vehicles/1
     def update
       if @vehicle.update(vehicle_params)
-        render json: @vehicle
+        render 'api/vehicles/show.json', status: :ok
       else
         render json: @vehicle.errors, status: :unprocessable_entity
       end
@@ -54,7 +50,7 @@ module Api
 
     # Only allow a trusted parameter "white list" through.
     def vehicle_params
-      params.require(:vehicle).permit(:value, :model_id, :brand_id, :year_model, :fuel)
+      params.require(:vehicle).permit(:value, :model_id, :year_model, :fuel)
     end
   end
 end
