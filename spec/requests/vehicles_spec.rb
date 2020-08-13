@@ -49,8 +49,12 @@ RSpec.describe '/vehicles', type: :request do
         expect(response).to have_http_status(:created)
       end
 
-      it 'has a reference to model' do
-        expect(json_response['model_id']).to eq(vehicle.model.id)
+      it 'has a name of the model' do
+        expect(json_response['model']).to be_a(String)
+      end
+
+      it 'has a name of the brand' do
+        expect(json_response['brand']).to be_a(String)
       end
     end
 
