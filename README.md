@@ -10,8 +10,11 @@ Ruby Version 2.7.0
 git clone https://github.com/danilolic/vehicles.git
 cd vehicle
 bundle install
+touch config/master.key && echo -e "395a8e6203ebea08e42b35be14434763" >> config/master.key
+
 rails db:create db:migrate db:seed
 ```
+**Warning:** Do not share your master key if you have sensitive data.
 With db:seed you can get some samples to query.
 
 ### Initialize
