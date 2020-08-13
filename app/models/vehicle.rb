@@ -9,4 +9,8 @@ class Vehicle < ApplicationRecord
   # You can't delegate with #model_name because #model_name is a reserved method of rails
   delegate :name_of_model, to: :model
   delegate :name, to: :brand, prefix: true
+
+  before_validation do |vehicle|
+    vehicle.brand = vehicle.model.brand
+  end
 end
