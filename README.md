@@ -26,9 +26,13 @@ With db:seed you can get some samples to query.
 rails s
 ```
 
-You can see the API docs here:
+### You can see the API docs here:
 
 https://documenter.getpostman.com/view/6655494/T1LLDTCb
+
+### You can try on Heroku
+
+https://polar-brushlands-02894.herokuapp.com/api/brands
 
 ### Authentication:
 The api uses JWT with refresh tokens as strategy to authentication if you are not familiar see that:
