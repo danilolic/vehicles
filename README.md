@@ -8,10 +8,16 @@ Ruby Version 2.7.0
 ### Setup the project
 ```bash
 git clone https://github.com/danilolic/vehicles.git
-cd vehicle
+cd vehicles
 bundle install
+touch config/master.key && echo -e "395a8e6203ebea08e42b35be14434763" >> config/master.key
+touch config/credentials/development.key && echo -e "ad5f9b1bc62da63566bc74e5736e6704" >> config/credentials/development.key
+touch config/credentials/test.key && echo -e "ccc185978088b9b086dabbb4602b0247" >> config/credentials/test.key
 rails db:create db:migrate db:seed
 ```
+
+**Warning:** Do not share your master key if you have sensitive data.
+
 With db:seed you can get some samples to query.
 
 ### Initialize
@@ -45,7 +51,7 @@ You can see the code quality running on the root folder:
 rubycritic app/
 ```
 
-Security Issues:
+### Security Issues:
 
 You can see for security issue running on the root folder:
 
